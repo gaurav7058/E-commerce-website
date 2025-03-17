@@ -1,0 +1,146 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+} */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 100px;
+}
+
+/* Logo */
+.nav-logo img {
+    width: 150px;
+}
+
+/* Nav Links */
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    text-decoration: none;
+    /* font-size: 18px; */
+    /* color: white; */
+    padding: 10px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+ul li a:hover {
+    color: #f0a500;
+}
+
+/* Active hr underlining */
+hr {
+    width: 50%;
+    margin: 5px auto 0;
+    background-color: #f0a500;
+    border: none;
+    height: 2px;
+    visibility: hidden;
+    transition: visibility 0.3s;
+}
+
+.active-hr hr {
+    visibility: visible;
+}
+
+/* Nav Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-icons img {
+    width: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.nav-icons img:hover {
+    transform: scale(1.1);
+}
+/* Dropdown Menu */
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.profile-dropdown a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show Dropdown on Hover */
+.profile_icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile_icon:hover .profile-dropdown {
+    display: block;
+}
+
+/* Cart Link */
+.cart-link {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-link img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Cart Counter */
+.cart-link p {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Menu Icon (Small Screen) */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+
+
