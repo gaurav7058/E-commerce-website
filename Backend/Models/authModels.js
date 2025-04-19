@@ -1,17 +1,18 @@
 const userModel = require("../Schema/userSchema");
 
-const bcrypt=require("bcrypt")
-async function createUserModel({name,email,password}){
-    return new Promise(async (reolve,reject)=>{
+const bcrypt = require("bcryptjs"); // Use bcryptjs instead of bcrypt
+
+async function createUserModel({ name, email, password }) {
+    return new Promise(async (resolve, reject) => {
         try {
-            const hashPassword=await bcrypt.hash(password,10)
-            const userDb=await userModel.create({name,email,password:hashPassword});
-            reolve(userDb)
+            const hashPassword = await bcrypt.hash(password, 10);
+            const userDb = await userModel.create({ name, email, password: hashPassword });
+            resolve(userDb); // fixed spelling from reolve to resolve
         } catch (error) {
             console.log(error);
-            reject(error)
+            reject(error);
         }
-    }) 
+    });
 }
 async function isEmailExist({email}){
     return new Promise(async (resolve,reject)=>{

@@ -1,6 +1,6 @@
 const { createUser, createUserModel, isEmailExist, findUserByKey } = require("../Models/authModels");
 const { userValidation } = require("../utils/validation");
-const bcrypt=require("bcrypt")
+const bcrypt = require("bcryptjs");
 const jwt=require("jsonwebtoken");
 async function signUp(req,res){
     const {name,email,password}=req.body;
@@ -12,13 +12,9 @@ async function signUp(req,res){
             return res.status(400).json({success:false,message:"Email Already Exist"})              
         }
         const userDb=await createUserModel({name,email,password})
-        const token=jwt.sign({id:userDb._id},process.env.token,{
-            expiresIn: "1d"
-        });
         return res.status(200).json({
             success:true,
             message:"User created successfully",
-            token:token
         })
     } catch (error) {
         console.log(error)
@@ -40,7 +36,6 @@ async function login(req,res){
     try {
       const userDb= await findUserByKey({key:email});
       const isPasswordMath=await bcrypt.compare(password,userDb.password);
-    //   console.log(isPasswordMath)
       if(!isPasswordMath){
         return res.status(400).json({success:false,message:"password is inccorect"})
 
@@ -89,7 +84,6 @@ async function adminLogin(req,res) {
         }
 
     } catch (error) {
-        console.log(error)
         return res.json({
             status:404,
             message:error,
