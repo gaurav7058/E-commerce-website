@@ -1,6 +1,6 @@
 const userModel = require("../Schema/userSchema");
 
-const bcrypt = require("bcryptjs"); // Use bcryptjs instead of bcrypt
+const bcrypt = require("bcrypt"); // Use bcryptjs instead of bcrypt
 
 async function createUserModel({ name, email, password }) {
     return new Promise(async (resolve, reject) => {
