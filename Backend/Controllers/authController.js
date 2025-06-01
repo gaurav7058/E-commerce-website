@@ -11,6 +11,7 @@ async function signUp(req,res){
         } catch (error) {
             return res.status(400).json({success:false,message:"Email Already Exist"})              
         }
+        
         const userDb=await createUserModel({name,email,password})
         return res.status(200).json({
             success:true,
@@ -41,7 +42,6 @@ async function login(req,res){
 
       }
       const token= jwt.sign({id:userDb._id},process.env.token,{expiresIn:"1d"});
-      res.cookie("token",token,{expiresIn:"1d"})
       return res.status(200).json({
         success:true,
         message:"User logged in successfully",
@@ -57,7 +57,7 @@ async function login(req,res){
     }
 }
 async function logOut(req,res){
-    res.cookie("token","",{expiresIn:new Date(0)})
+    
     return res.json({
         status:200,
         message:"logout Successfull",
