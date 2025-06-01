@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const validator=require("validator");
-const bcrypt=require("bcrypt")
+
 const userSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -31,17 +31,4 @@ module.exports=userModel
 
 
 
-// userSchema.pre("save",async(next)=>{
-//     try {
-//         if(!this.isModified("password")){
-//           return  next()
-//         }
-//         const salt=await bcrypt.genSalt(10);
-//         const pass=await bcrypt.hash(this.password,salt);
-//         this.password=pass;
-//         next()
-//     } catch (error) {
-//         next(error)
-//     }
 
-// })
