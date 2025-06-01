@@ -1,6 +1,7 @@
 // Modules
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -49,5 +50,15 @@ const startServer = async () => {
         process.exit(1); // Stop execution if DB fails
     }
 };
+
+// Deployment setup
+const dirPath = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(dirPath, "../frontend/dist")));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(dirPath, "../frontend", "dist", "index.html"));
+  });
+}
 
 startServer();

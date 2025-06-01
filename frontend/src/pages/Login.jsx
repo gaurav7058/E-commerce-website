@@ -11,7 +11,6 @@ const Login = () => {
   const[password,setPassword]=useState('')
   const onSubmitHandler=async (e)=>{ 
     e.preventDefault()
-
     try {
       if(currentState==="Sign Up"){
         try {

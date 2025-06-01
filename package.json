@@ -1,0 +1,13 @@
+{
+  "name": "e-commerce_using_mern",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix Backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix Backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
