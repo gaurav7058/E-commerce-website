@@ -8,7 +8,6 @@ import { Route, Routes } from 'react-router-dom'
 import Login from './components/Login'
 import { ToastContainer } from 'react-toastify';
 import Users from './pages/Users'
-  
 export const backendUrl ="https://e-commerce-website-backend-vjs4.onrender.com";
 export const currency='$'
 const App = () => {
