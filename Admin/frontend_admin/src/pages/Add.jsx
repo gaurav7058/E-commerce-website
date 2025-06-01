@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/admin_assets/assets'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-
+import {backendUrl} from "../App.jsx"
 const Add = ({token}) => {
   const[image1,setImage1]=useState(false)
   const[image2,setImage2]=useState(false)
@@ -34,7 +34,7 @@ const Add = ({token}) => {
      image3 && formData.append('image3',image3)
      image4 && formData.append('image4',image4)
 
-     const res=await axios.post('http://localhost:8000/api/product/create',formData,{
+     const res=await axios.post(`${backendUrl}/api/product/create`,formData,{
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
