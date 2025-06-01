@@ -68,6 +68,7 @@ const PlaceOrder = () => {
             navigate('/orders')
           }
           else{
+            console.log(response.data.message)
             toast.error(response.data.message)
           }
           break;
@@ -83,6 +84,7 @@ const PlaceOrder = () => {
             window.location.replace(session_url)
           }
           else{
+            console.log(responseStripe.data.message)
             toast.error(responseStripe.data.message)
           }
           break;
@@ -102,8 +104,8 @@ const PlaceOrder = () => {
           <Title text1={`DELIVERY`} text2={`INFORMATION`}/>
         </div>
         <div className="flex gap-3">
-          <input onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First name'/>
-          <input onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last name'/>
+          <input onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First name' required/>
+          <input onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last name' required/>
         </div>
         <input required onChange={onChangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Email'/>
         <input required onChange={onChangeHandler} name='street' value={formData.street} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Street'/>

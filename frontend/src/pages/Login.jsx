@@ -16,10 +16,14 @@ const Login = () => {
       if(currentState==="Sign Up"){
         try {
           const response=await axios.post(`${backendUrl}/api/auth/signup`,{name,email,password});
+          console.log(response)
           if(response.data.success){
-            setToken(response.data.token)
-            localStorage.setItem('token',response.data.token)
+            // setToken(response.data.token)
+            // localStorage.setItem('token',response.data.token)
             toast.success(response.data.message)
+            setCurrentState("Login")
+            setEmail('');
+            setPassword('')
           }
           else{
             console.log(error)
@@ -38,6 +42,7 @@ const Login = () => {
           if(response.data.success){
             setToken(response.data.token)
             localStorage.setItem('token',response.data.token)
+            toast.success(response.data.message)
           }
           else{
             toast.error(response.data.message)
@@ -72,7 +77,9 @@ const Login = () => {
       <input type="password" className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required onChange={(e)=>setPassword(e.target.value)} value={password}/>
       
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className='cursor-pointer'>Forgot Your Password?</p>
+        {
+          currentState==='Login'? <p className='cursor-pointer'>Forgot Your Password?</p>:  ""
+        }
         {
           currentState==='Login'
           ? <p onClick={()=>setCurrentState('Sign Up')} className='cursor-pointer'>Create acoount</p>
