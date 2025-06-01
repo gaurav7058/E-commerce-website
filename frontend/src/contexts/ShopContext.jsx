@@ -9,7 +9,7 @@ export const ShopContext=createContext();
 const ShopContextProvider=(props)=>{
     const currency='$'
     const delivery_fee=10
-    const backendUrl="https://e-commerce-website-backend-f2qe.onrender.com" || "http://localhost:8000";
+    const backendUrl="http://localhost:8000";
     const[search,setSearch]=useState('');
     const[showSearch,setShowSearch]=useState(false)
     const[products,setProducts]=useState([])

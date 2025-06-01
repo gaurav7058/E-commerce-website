@@ -9,7 +9,7 @@ import Login from './components/Login'
 import { ToastContainer } from 'react-toastify';
 import Users from './pages/Users'
   
-export const backendUrl ="https://e-commerce-website-backend-f2qe.onrender.com" || "http://localhost:8000";
+export const backendUrl ="http://localhost:8000";
 export const currency='$'
 const App = () => {
   const initialToken = localStorage.getItem('token') || '';
