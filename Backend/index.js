@@ -53,12 +53,21 @@ const startServer = async () => {
 
 // Deployment setup
 const dirPath = path.resolve();
+
 if (process.env.NODE_ENV === "production") {
+  // Serve static files for Frontend and Admin
   app.use(express.static(path.join(dirPath, "../frontend/dist")));
-  
+  app.use("/admin", express.static(path.join(dirPath, "../Admin/frontend_admin/dist")));
+
+  // Catch-all for Admin (React Router support)
+  app.get("/admin/*", (req, res) => {
+    res.sendFile(path.join(dirPath, "../Admin/frontend_admin/dist/index.html"));
+  });
+
+  // Catch-all for Frontend (React Router support)
   app.get("*", (req, res) => {
-    res.sendFile(path.join(dirPath, "../frontend", "dist", "index.html"));
-  });
+    res.sendFile(path.join(dirPath, "../frontend/dist/index.html"));
+  });
 }
 
 startServer();
