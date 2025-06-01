@@ -23,6 +23,7 @@ const App = () => {
     <SearchBar/>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/https://e-commerce-website-frontend-user.vercel.app' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/collection' element={<Collection></Collection>}></Route>
         <Route path='/about' element={<About></About>}></Route>
