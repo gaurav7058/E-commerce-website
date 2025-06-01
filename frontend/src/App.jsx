@@ -23,7 +23,6 @@ const App = () => {
     <SearchBar/>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/collection' element={<Collection></Collection>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>

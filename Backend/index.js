@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 // Routes
-app.get("/", (req, res) => res.send("Hello, Server is running!"));
+// app.get("/", (req, res) => res.send("Hello, Server is running!"));
 app.use("/api/auth", authRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
